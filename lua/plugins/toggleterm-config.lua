@@ -1,6 +1,14 @@
 return {
-  -- amongst your other plugins
-  { 'akinsho/toggleterm.nvim', version = "*", config = true },
-  -- or
-  --  { 'akinsho/toggleterm.nvim', version = "*", opts = { --[[ things you want to change go here]] } },
+  {
+    "akinsho/toggleterm.nvim",
+    tag = "*",
+    keys = {
+      {
+        "<leader>td",
+        "<cmd>ToggleTerm size=40 dir=~/Desktop direction=horizontal<cr>",
+        desc = "Open a horizontal terminal at the Desktop directory"
+      }
+    },
+  },
+
 }
