@@ -3,8 +3,8 @@ return {
     "folke/edgy.nvim",
     event = "VeryLazy",
     init = function()
-      vim.opt.laststatus = 3
-      vim.opt.splitkeep = "screen"
+      vim.opt.laststatus = 0
+      vim.opt.splitkeep = "cursor"
     end,
     opts = {
       bottom = {
@@ -26,7 +26,7 @@ return {
           end,
         },
         "Trouble",
-        { ft = "qf", title = "QuickFix" },
+        { ft = "qf",            title = "QuickFix" },
         {
           ft = "help",
           size = { height = 20 },
@@ -38,7 +38,7 @@ return {
         { ft = "spectre_panel", size = { height = 0.4 } },
       },
       left = {
-        -- Neo-tree filesystem always takes half the screen height
+        "neo-tree",
         {
           title = "Neo-Tree",
           ft = "neo-tree",
@@ -53,26 +53,30 @@ return {
           filter = function(buf)
             return vim.b[buf].neo_tree_source == "git_status"
           end,
-          pinned = true,
           open = "Neotree position=right git_status",
         },
-        {
-          title = "Neo-Tree Buffers",
-          ft = "neo-tree",
-          filter = function(buf)
-            return vim.b[buf].neo_tree_source == "buffers"
-          end,
-          pinned = true,
-          open = "Neotree position=top buffers",
-        },
-        {
-          ft = "Outline",
-          pinned = true,
-          open = "SymbolsOutlineOpen",
-        },
-        -- any other neo-tree windows
-        "neo-tree",
-      },
+
+      }
+      --      left = {
+      --        -- Neo-tree filesystem always takes half the screen height
+
+      --        {
+      --          title = "Neo-Tree Buffers",
+      --          ft = "neo-tree",
+      --          filter = function(buf)
+      --            return vim.b[buf].neo_tree_source == "buffers"
+      --          end,
+      --          pinned = true,
+      --          open = "Neotree position=top buffers",
+      --        },
+      --        {
+      --          ft = "Outline",
+      --          pinned = true,
+      --          open = "SymbolsOutlineOpen",
+      --        },
+      --        -- any other neo-tree windows
+      --        "neo-tree",
+      --      },
     },
   },
 }
