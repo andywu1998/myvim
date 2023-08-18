@@ -1,3 +1,5 @@
+
+
 lua << EOF
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
@@ -22,3 +24,4 @@ EOF
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 call plug#end()
+set ts=4 sw=4
