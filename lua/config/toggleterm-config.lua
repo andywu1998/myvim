@@ -58,3 +58,9 @@ local python = Terminal:new({ cmd = "python3", hidden = true })
 function _PYTHON_TOGGLE()
     python:toggle()
 end
+
+function _lazygit_toggle()
+    lazygit:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>tpy", "<cmd>lua _PYTHON_TOGGLE()<CR>", { noremap = true, silent = true })
