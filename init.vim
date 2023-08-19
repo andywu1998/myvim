@@ -3,6 +3,8 @@
 lua << EOF
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+require("config.git")
+require("config.which-key")
 vim.wo.relativenumber = false
 
 function _G.set_terminal_keymaps()
@@ -24,5 +26,8 @@ EOF
 
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
+
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 set ts=4 sw=4
+let g:blamer_enabled = 1
