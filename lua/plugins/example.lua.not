@@ -42,7 +42,6 @@ return {
         end,
     },
 
-    -- add telescope-fzf-native
 
 
     -- add pyright to lspconfig
