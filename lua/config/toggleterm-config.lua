@@ -74,6 +74,7 @@ local lazygit = Terminal:new({
     end,
 })
 
+-- brew install jesseduffield/lazygit/lazygit
 function _lazygit_toggle()
     lazygit:toggle()
 end
