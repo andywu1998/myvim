@@ -6,6 +6,7 @@ require("config.lazy")
 require("config.git")
 require("config.which-key")
 require("config.lsp")
+require("config.mapping")
 vim.wo.relativenumber = false
 
 function _G.set_terminal_keymaps()
