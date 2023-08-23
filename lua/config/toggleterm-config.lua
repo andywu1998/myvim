@@ -80,3 +80,12 @@ function _lazygit_toggle()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+
+
+local cwdTerm = Terminal:new({ hidden = true, close_on_exit = false })
+
+function _CWD_TOGGLE()
+    cwdTerm:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<leader>tcw", "<cmd>lua _CWD_TOGGLE()<CR>", { noremap = true, silent = true })
