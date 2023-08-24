@@ -81,11 +81,24 @@ end
 
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
 
+function _set_toggleterm_working_directory()
+    local current_file = vim.fn.expand('%:p')
+    local current_dir = vim.fn.fnamemodify(current_file, ':h')
+    local command = "cd " .. vim.fn.shellescape(current_dir)
+    return command
+end
 
-local cwdTerm = Terminal:new({ hidden = true, close_on_exit = false })
+local cwdTerm = Terminal:new({ cmd = _set_toggleterm_working_directory(), hidden = true, close_on_exit = false })
 
 function _CWD_TOGGLE()
-    cwdTerm:toggle()
+    local current_file_directory = vim.fn.expand('%:p:h')
+    local term = Terminal:new({
+        cmd = vim.o.shell,
+        dir = current_file_directory,
+        hidden = false,
+        close_on_exit = true,
+    })
+    term:open()
 end
 
 vim.api.nvim_set_keymap("n", "<leader>tcw", "<cmd>lua _CWD_TOGGLE()<CR>", { noremap = true, silent = true })
