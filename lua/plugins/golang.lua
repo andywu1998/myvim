@@ -257,6 +257,14 @@ return {
     },
     {},
     {
+        "andywu1998/nvim-dap-go2",
+        ft = "go",
+        config = function(_, opts)
+            require("dap-go").setup(opts)
+        end,
+        dependencies = "mfussenegger/nvim-dap",
+    },
+    {
         "leoluz/nvim-dap-go",
         ft = "go",
         config = function(_, opts)
