@@ -92,12 +92,15 @@ local cwdTerm = Terminal:new({ cmd = _set_toggleterm_working_directory(), hidden
 
 function _CWD_TOGGLE()
     local current_file_directory = vim.fn.expand('%:p:h')
+    test_name = require('dap-go').debug_test2()
+    cmd = "go test -run " .. test_name .. " -v"
     local term = Terminal:new({
-        cmd = vim.o.shell,
+        cmd = cmd,
         dir = current_file_directory,
         hidden = false,
-        close_on_exit = true,
+        close_on_exit = false,
     })
+    vim.notify(cmd)
     term:open()
 end
 
