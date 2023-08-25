@@ -90,10 +90,10 @@ end
 
 local cwdTerm = Terminal:new({ cmd = _set_toggleterm_working_directory(), hidden = true, close_on_exit = false })
 
-function _CWD_TOGGLE()
+function _GoTest()
     local current_file_directory = vim.fn.expand('%:p:h')
     test_name = require('dap-go2').get_test_name()
-    cmd = "go test -run " .. test_name .. " -v"
+    cmd = "go test -run " .. "^" .. test_name .. "$" .. " -v"
     local term = Terminal:new({
         cmd = cmd,
         dir = current_file_directory,
@@ -104,4 +104,5 @@ function _CWD_TOGGLE()
     term:open()
 end
 
-vim.api.nvim_set_keymap("n", "<leader>tcw", "<cmd>lua _CWD_TOGGLE()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tcw", "<cmd>lua _GoTest()<CR>",
+    { noremap = true, silent = true, desc = "go test curent case" })
