@@ -71,21 +71,6 @@ return {
         },
     },
     {
-        "jose-elias-alvarez/null-ls.nvim",
-        opts = function(_, opts)
-            if type(opts.sources) == "table" then
-                local nls = require("null-ls")
-                vim.list_extend(opts.sources, {
-                    nls.builtins.code_actions.gomodifytags,
-                    nls.builtins.code_actions.impl,
-                    nls.builtins.formatting.gofumpt,
-                    nls.builtins.formatting.goimports_reviser,
-                    nls.builtins.formatting.golines,
-                })
-            end
-        end,
-    },
-    {
         "mfussenegger/nvim-dap",
 
         dependencies = {
@@ -248,14 +233,7 @@ return {
             end
         end,
     },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        ft = "go",
-        opts = function()
-            return require("config.null-ls")
-        end,
-    },
-    {},
+
     {
         "andywu1998/nvim-dap-go2",
         ft = "go",
@@ -300,5 +278,23 @@ return {
         build = function()
             vim.cmd([[silent! GoInstallDeps]])
         end,
+        dependencies = { -- dependencies
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        }
     },
+    {
+        "ray-x/go.nvim",
+        dependencies = { -- optional packages
+            "ray-x/guihua.lua",
+            "neovim/nvim-lspconfig",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("go").setup()
+        end,
+        event = { "CmdlineEnter" },
+        ft = { "go", 'gomod' },
+        build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    }
 }
