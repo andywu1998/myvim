@@ -2,6 +2,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         opts = {
+            autoformat = false,
             servers = {
                 gopls = {
                     keys = {
@@ -10,7 +11,7 @@ return {
                     },
                     settings = {
                         gopls = {
-                            gofumpt = true,
+                            gofumpt = false,
                             codelenses = {
                                 gc_details = false,
                                 generate = true,
@@ -38,7 +39,7 @@ return {
                                 useany = true,
                             },
                             usePlaceholders = true,
-                            completeUnimported = false,
+                            completeUnimported = true,
                             staticcheck = true,
                             directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
                             semanticTokens = true,
@@ -281,7 +282,7 @@ return {
         dependencies = { -- dependencies
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
-        }
+        },
     },
     {
         "ray-x/go.nvim",
@@ -294,7 +295,7 @@ return {
             require("go").setup()
         end,
         event = { "CmdlineEnter" },
-        ft = { "go", 'gomod' },
-        build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-    }
+        ft = { "go", "gomod" },
+        build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+    },
 }
