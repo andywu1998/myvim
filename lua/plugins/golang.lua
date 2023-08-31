@@ -2,6 +2,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         opts = {
+            autoformat = false,
             servers = {
                 gopls = {
                     keys = {
@@ -10,7 +11,7 @@ return {
                     },
                     settings = {
                         gopls = {
-                            gofumpt = true,
+                            gofumpt = false,
                             codelenses = {
                                 gc_details = false,
                                 generate = true,
@@ -80,7 +81,6 @@ return {
                     nls.builtins.code_actions.impl,
                     nls.builtins.formatting.gofumpt,
                     nls.builtins.formatting.goimports_reviser,
-                    nls.builtins.formatting.golines,
                 })
             end
         end,
