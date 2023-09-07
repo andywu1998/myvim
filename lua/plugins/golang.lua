@@ -39,7 +39,7 @@ return {
                                 useany = true,
                             },
                             usePlaceholders = true,
-                            completeUnimported = false,
+                            completeUnimported = true,
                             staticcheck = true,
                             directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
                             semanticTokens = true,
@@ -248,14 +248,7 @@ return {
             end
         end,
     },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        ft = "go",
-        opts = function()
-            return require("config.null-ls")
-        end,
-    },
-    {},
+
     {
         "andywu1998/nvim-dap-go2",
         ft = "go",
@@ -300,5 +293,23 @@ return {
         build = function()
             vim.cmd([[silent! GoInstallDeps]])
         end,
+        dependencies = { -- dependencies
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+    {
+        "ray-x/go.nvim",
+        dependencies = { -- optional packages
+            "ray-x/guihua.lua",
+            "neovim/nvim-lspconfig",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("go").setup()
+        end,
+        event = { "CmdlineEnter" },
+        ft = { "go", "gomod" },
+        build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
     },
 }
