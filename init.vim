@@ -24,6 +24,8 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 require "config.toggleterm-config"
 require('leap').add_default_mappings()
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
 EOF
 
 
@@ -34,3 +36,4 @@ Plug 'APZelos/blamer.nvim'
 call plug#end()
 set ts=4 sw=4
 let g:blamer_enabled = 1
+set background=light
