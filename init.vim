@@ -38,4 +38,4 @@ set ts=4 sw=4
 let g:blamer_enabled = 1
 set background=dark
 
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright', 'coc-protobuf']
