@@ -36,6 +36,5 @@ Plug 'APZelos/blamer.nvim'
 call plug#end()
 set ts=4 sw=4
 let g:blamer_enabled = 1
-set background=dark
 
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pyright', 'coc-protobuf']
