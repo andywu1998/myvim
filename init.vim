@@ -26,6 +26,10 @@ require "config.toggleterm-config"
 require('leap').add_default_mappings()
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
+
+require'switch_case'
+vim.api.nvim_set_keymap('n', '<Leader>nc', '<cmd>lua require("switch_case").switch_case()<CR>', {noremap = true, silent = true})
+
 EOF
 
 
