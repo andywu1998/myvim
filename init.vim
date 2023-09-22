@@ -29,7 +29,7 @@ vim.cmd([[colorscheme gruvbox]])
 
 require'switch_case'
 vim.api.nvim_set_keymap('n', '<Leader>nc', '<cmd>lua require("switch_case").switch_case()<CR>', {noremap = true, silent = true})
-
+require('config.unixtimestamp')
 EOF
 
 
