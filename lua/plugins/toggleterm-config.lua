@@ -1,3 +1,4 @@
+-- 嵌入式终端
 return {
     -- Added this plugin.
     {
