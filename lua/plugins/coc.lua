@@ -1,3 +1,4 @@
+return
 local M = {
   "neoclide/coc.nvim",
   branch = "master",
