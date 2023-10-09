@@ -1,6 +1,8 @@
 return {
+    -- neotree的图标
     { "nvim-tree/nvim-web-devicons", lazy = true },
-    { "MunifTanjim/nui.nvim", lazy = true },
+    -- 不知道做啥的，先关掉
+    -- { "MunifTanjim/nui.nvim", lazy = true },
     {
         "nvim-neo-tree/neo-tree.nvim",
         opts = {
@@ -20,26 +22,27 @@ return {
             },
         },
     },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPost", "BufNewFile" },
-        opts = {
-            -- char = "▏",
-            char = "│",
-            filetype_exclude = {
-                "help",
-                "alpha",
-                "dashboard",
-                "neo-tree",
-                "Trouble",
-                "lazy",
-                "mason",
-                "notify",
-                "toggleterm",
-                "lazyterm",
-            },
-            show_trailing_blankline_indent = false,
-            show_current_context = false,
-        },
-    },
+    -- 不知道做啥的，先关掉
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     event = { "BufReadPost", "BufNewFile" },
+    --     opts = {
+    --         -- char = "▏",
+    --         char = "│",
+    --         filetype_exclude = {
+    --             "help",
+    --             "alpha",
+    --             "dashboard",
+    --             "neo-tree",
+    --             "Trouble",
+    --             "lazy",
+    --             "mason",
+    --             "notify",
+    --             "toggleterm",
+    --             "lazyterm",
+    --         },
+    --         show_trailing_blankline_indent = false,
+    --         show_current_context = false,
+    --     },
+    -- },
 }
