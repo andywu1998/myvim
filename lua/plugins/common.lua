@@ -2,12 +2,6 @@ return {
     -- add symbols-outline
     -- 显示outline
     {
-        "simrat39/symbols-outline.nvim",
-        cmd = "SymbolsOutline",
-        keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-        config = true,
-    },
-    {
         -- 查找文件
         "nvim-telescope/telescope.nvim",
         keys = {

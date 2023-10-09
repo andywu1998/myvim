@@ -1,3 +1,4 @@
+# 颜色主题
 return {
     -- add gruvbox
     { "ellisonleao/gruvbox.nvim" },
