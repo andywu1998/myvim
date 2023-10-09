@@ -317,4 +317,21 @@ return {
         ft = { "go", "gomod" },
         build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
     },
+    {
+        "mfussenegger/nvim-dap",
+        optional = true,
+        dependencies = {
+            {
+                "mason.nvim",
+                opts = function(_, opts)
+                    opts.ensure_installed = opts.ensure_installed or {}
+                    vim.list_extend(opts.ensure_installed, { "gomodifytags", "impl", "goimports", "delve" })
+                end,
+            },
+            {
+                "leoluz/nvim-dap-go",
+                config = true,
+            },
+        },
+    }
 }
