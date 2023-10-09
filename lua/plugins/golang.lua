@@ -4,7 +4,14 @@ return {
         init = function()
             local keys = require("lazyvim.plugins.lsp.keymaps").get()
             -- change a keymap
-            keys[#keys + 1] =       { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = false }) end, desc = "changed Goto Definition", has = "definition" }
+            keys[#keys + 1] = {
+                "gd",
+                function()
+                    require("telescope.builtin").lsp_definitions({ reuse_win = false })
+                end,
+                desc = "changed Goto Definition",
+                has = "definition",
+            }
             -- -- disable a keymap
             -- keys[#keys + 1] = { "K", false }
             -- -- add a keymap
@@ -79,20 +86,6 @@ return {
                 end,
             },
         },
-    },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        opts = function(_, opts)
-            if type(opts.sources) == "table" then
-                local nls = require("null-ls")
-                vim.list_extend(opts.sources, {
-                    nls.builtins.code_actions.gomodifytags,
-                    nls.builtins.code_actions.impl,
-                    nls.builtins.formatting.gofumpt,
-                    nls.builtins.formatting.goimports_reviser,
-                })
-            end
-        end,
     },
     {
         "mfussenegger/nvim-dap",
