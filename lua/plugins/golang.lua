@@ -1,4 +1,5 @@
 return {
+    -- 设置lsp
     {
         "neovim/nvim-lspconfig",
         init = function()
@@ -87,6 +88,7 @@ return {
             },
         },
     },
+    -- debug 相关
     {
         "mfussenegger/nvim-dap",
 
@@ -251,6 +253,7 @@ return {
         end,
     },
 
+    -- 小小魔改了一下nvim-dap-go tcw在toggle term执行当前测试用例
     {
         "andywu1998/nvim-dap-go2",
         ft = "go",
@@ -259,14 +262,14 @@ return {
         end,
         dependencies = "mfussenegger/nvim-dap",
     },
-    {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        config = function(_, opts)
-            require("dap-go").setup(opts)
-        end,
-        dependencies = "mfussenegger/nvim-dap",
-    },
+    -- {
+    --     "leoluz/nvim-dap-go",
+    --     ft = "go",
+    --     config = function(_, opts)
+    --         require("dap-go").setup(opts)
+    --     end,
+    --     dependencies = "mfussenegger/nvim-dap",
+    -- },
     {
         "nvim-neotest/neotest",
         optional = true,

@@ -1,3 +1,4 @@
+-- 调节窗口边界，目前比较影响的是toggleterm
 return {
     "folke/edgy.nvim",
     event = "VeryLazy",
