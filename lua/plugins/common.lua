@@ -33,15 +33,6 @@ return {
             end,
         },
     },
-    -- 选定主题
-    {
-
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "gruvbox",
-        },
-    },
-
     {
         "ggandor/leap.nvim",
         enabled = true,
