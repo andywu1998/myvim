@@ -32,12 +32,6 @@ vim.api.nvim_set_keymap('n', '<Leader>nc', '<cmd>lua require("switch_case").swit
 require('config.unixtimestamp')
 EOF
 
-
-call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go'
-
-Plug 'APZelos/blamer.nvim'
-call plug#end()
 set ts=4 sw=4
 let g:blamer_enabled = 1
 
