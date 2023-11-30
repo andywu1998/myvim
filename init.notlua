@@ -1,3 +1,4 @@
+-- 安装lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -10,9 +11,15 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
+-- 设置leader
 vim.g.mapleader = " "
+
+-- 引用lua/plugins插件
 require("lazy").setup("plugins")
+-- 设置快捷键
 require("config.keymaps")
 
-vim.opt.termguicolors = true
+-- 启用配色
+-- vim.opt.termguicolors = true
 
