@@ -72,3 +72,5 @@ require 'lspconfig'.lua_ls.setup {
 		return true
 	end
 }
+-- python
+require'lspconfig'.pyright.setup{}
