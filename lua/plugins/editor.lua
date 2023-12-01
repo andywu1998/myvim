@@ -82,5 +82,6 @@ return {
 				["<leader>da"] = { name = "+adapters" },
 			},
 		},
-	}
+	},
+	{ 'echasnovski/mini.nvim', version = false },
 }
