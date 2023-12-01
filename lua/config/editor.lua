@@ -40,5 +40,8 @@ end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-
+-- 自动注释
 require('mini.comment').setup()
+
+-- auto pair
+require('mini.pairs').setup()
