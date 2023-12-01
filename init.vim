@@ -26,8 +26,12 @@ require("config.lsp")
 -- vim.opt.termguicolors = true
 -- toggleterm的配置
 require("config.toggleterm")
+
+vim.wo.relativenumber = false
+vim.wo.number = true
 EOF
 
 " 启用系统剪切板 
 
 set clipboard+=unnamedplus
+set ts=4 sw=4
