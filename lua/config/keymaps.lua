@@ -1,6 +1,6 @@
 -- 设置shift+h, shift+l为切换tab
-vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", {desc = "Prev Buffer"})
-vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", {desc = "Next Buffer"})
+vim.keymap.set("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 
 
 -- C+hjkl能切换窗口
@@ -9,7 +9,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = tr
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
--- set telescope 
+-- set telescope
 local builtin = require('telescope.builtin')
 -- find file
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
