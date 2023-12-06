@@ -84,4 +84,7 @@ return {
 		},
 	},
 	{ 'echasnovski/mini.nvim', version = false },
+	{
+		"nvim-treesitter/nvim-treesitter"
+	},
 }

@@ -45,3 +45,10 @@ require('mini.comment').setup()
 
 -- auto pair
 require('mini.pairs').setup()
+
+require 'nvim-treesitter.configs'.setup {
+	ensure_installed = "all",
+	highlight = {
+		enable = true
+	},
+}
