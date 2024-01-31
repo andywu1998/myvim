@@ -4,39 +4,32 @@
 -- 将 UNIX 时间戳转换为人类可读的时间
 function convertUnixTime()
   -- 获取当前光标所在行的内容
-  local line = vim.api.nvim_get_current_line()
+  local lnum = vim.api.nvim_get_current_line()
 
   -- 使用正则表达式匹配行中的 UNIX 时间戳
-  local timestamp = line:match('%d+')
-
+  local timestamp = lnum:match('%d+')
+  local virt_text_pos = 'eol'
   -- 检查是否匹配到 UNIX 时间戳
   if not timestamp then
     print("No UNIX timestamp found")
-    return
   end
 
   -- 将 UNIX 时间戳转换为人类可读的时间
   local humanReadableTime = os.date('%Y-%m-%d %H:%M:%S', tonumber(timestamp))
 
-  -- 创建悬浮窗来显示转换后的时间
-  local bufnr = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {humanReadableTime})
-  local winnr = vim.api.nvim_open_win(bufnr, true, {
-    relative = 'cursor',
-    row = 1,
-    col = 0,
-    width = #humanReadableTime + 2,  -- 设置窗口的宽度
-    height = 1,
-    style = 'minimal',
-    border = 'single'
-  })
 
-  -- 在悬浮窗的关闭事件中移除缓冲区并关闭窗口
-  vim.api.nvim_buf_attach(bufnr, false, {
-    on_detach = function()
-      vim.api.nvim_buf_delete(bufnr, {force = true})
-      vim.api.nvim_win_close(winnr, true)
-    end
+  local current_buf = vim.api.nvim_get_current_buf()
+  local current_line = vim.api.nvim_win_get_cursor(0)[1]
+  
+  local namespace_id = vim.api.nvim_create_namespace("my_namespace")
+  local text = humanReadableTime
+  local start_col = 0
+  local line_text = vim.api.nvim_buf_get_lines(current_buf, current_line - 1, current_line, false)[1]
+  local end_col = start_col + #line_text - 1
+  local mark_id = vim.api.nvim_buf_set_extmark(current_buf, namespace_id, current_line - 1, start_col, {
+    end_line = current_line - 1,
+    end_col = end_col,
+    virt_text = {{text, "Error"}}
   })
 end
 
