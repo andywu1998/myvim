@@ -22,3 +22,5 @@ if Util.has("bufferline.nvim") then
 ```
 
 之后需要设置一个快捷键，用来快速删除一个bufferline
+
+尝试新设备的ssh
