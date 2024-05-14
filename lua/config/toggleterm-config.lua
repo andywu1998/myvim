@@ -1,5 +1,19 @@
 -- toggleterm-config.lua
 
+
+local powershell_options = {
+  shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+  shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+  shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+  shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+  shellquote = "",
+  shellxquote = "",
+}
+
+for option, value in pairs(powershell_options) do
+  vim.opt[option] = value
+end
+
 local status_ok, toggleterm = pcall(require, "toggleterm")
 if not status_ok then
     return
@@ -26,6 +40,7 @@ toggleterm.setup({
             background = "Normal",
         },
     },
+    default_executive = 'powershell.exe'
 })
 
 function _G.set_terminal_keymaps()
@@ -119,3 +134,5 @@ end
 vim.api.nvim_set_keymap("n", "<leader>tcd", "<cmd>lua _CWD_TERM()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tcw", "<cmd>lua _GoTest()<CR>",
     { noremap = true, silent = true, desc = "go test curent case" })
+
+
