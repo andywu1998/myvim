@@ -17,6 +17,19 @@ M.dap    = {
             end,
             "Open debugging sidebar"
         },
+        ["<leader>dLn"] = {
+
+            function()
+                local dap = require("dap")
+                local session = dap.session()
+                if not session or session.stopped_thread_id then
+                dap.continue()
+                else
+                dap.pause()
+                end
+            end,
+            "start listen"
+        }
     }
 }
 

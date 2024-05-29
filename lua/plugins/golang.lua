@@ -101,6 +101,19 @@ return {
                 keys = {
                     { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
                     { "<leader>de", function() require("dapui").eval() end,     desc = "Eval",  mode = { "n", "v" } },
+                    {
+                        "<leader>dLn",
+                        function()
+                            local dap = require("dap")
+                            local session = dap.session()
+                            if not session or session.stopped_thread_id then
+                            dap.continue()
+                            else
+                            dap.pause()
+                            end
+                        end,
+                        desc = "startListen"
+                    }
                 },
                 opts = {},
                 config = function(_, opts)
