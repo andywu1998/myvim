@@ -195,7 +195,7 @@ return {
                 "Go to line (no execute)"
             },
             {
-                "<leader>di",
+                "<F7>",
                 function() require("dap").step_into() end,
                 desc =
                 "Step Into"
@@ -215,7 +215,7 @@ return {
                 "Step Out"
             },
             {
-                "<leader>dO",
+                "<F6>",
                 function() require("dap").step_over() end,
                 desc =
                 "Step Over"
