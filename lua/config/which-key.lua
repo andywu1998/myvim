@@ -39,7 +39,7 @@ which_key.register(mappings, opts)
 
 require("which-key").register({
   ["<leader>"] = {
-    u = {
+    t = {
       name = "Upload / Download",
       d = { "<cmd>TransferDownload<cr>", "Download from remote server (scp)" },
       u = { "<cmd>TransferUpload<cr>", "Upload to remote server (scp)" },
