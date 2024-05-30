@@ -28,7 +28,6 @@ return {
               -- The first mapping should be the one that you are actively using.
               -- This only started recently, so I don't know what changed.
               ["${workspaceFolder}"] = "${workspaceFolder}",
-              ["/data/codebase/wuliwei/php-crm"] = "/Users/liwei/code/PHP-CRM"
             },
           },
         }
