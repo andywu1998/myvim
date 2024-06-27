@@ -7,6 +7,9 @@ return {
         vim.opt.splitkeep = "screen"
     end,
     opts = {
+        options = {
+            left = { size = 50},
+        },
         bottom = {
             -- toggleterm / lazyterm at the bottom with a height of 40% of the screen
             {
