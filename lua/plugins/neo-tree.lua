@@ -53,6 +53,19 @@ return {
                         end,
                         desc = "diff with remote",
                     },
+                    us = {
+                        function(state)
+                            require('leap').leap {}
+                        end,
+                        desc = "diff with remote",
+                    },
+                    uS = {
+                        function(state)
+                            require('leap').leap { backward = true, ['match-xxx*-at-the-end?'] = true }
+                        end,
+                        desc = "diff with remote",
+                    },
+
                 }
             },
         },
