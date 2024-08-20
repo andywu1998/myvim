@@ -1,5 +1,8 @@
 vim.api.nvim_set_keymap("n", "<S-c>", "<cmd>lua require('mini.bufremove').delete(0, true)<CR>",
     { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-t>", "<cmd>Telescope buffers<CR>",
+    { noremap = true, silent = true })
+
 local M  = {}
 
 M.dap    = {
