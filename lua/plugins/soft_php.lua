@@ -1,0 +1,1 @@
+/Users/liwei/.config/nvim_xiaoman_local/php.lua

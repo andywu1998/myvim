@@ -22,6 +22,7 @@ return {
             },
             window = {
                 mappings = {
+
                     -- upload (sync files)
                     uu = {
                         function(state)
@@ -53,13 +54,13 @@ return {
                         end,
                         desc = "diff with remote",
                     },
-                    us = {
+                    f = {
                         function(state)
                             require('leap').leap {}
                         end,
                         desc = "diff with remote",
                     },
-                    uS = {
+                    F = {
                         function(state)
                             require('leap').leap { backward = true, ['match-xxx*-at-the-end?'] = true }
                         end,
